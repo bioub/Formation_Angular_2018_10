@@ -1,0 +1,16 @@
+<p (mouseenter)="color = 'green'"
+   (mouseleave)="color = 'blue'"
+   [style.background]="color">
+  {{ now | date:'HH:mm:ss' }}
+</p>
+<!--
+<p [innerText]="now | date:'HH:mm:ss'"></p>
+<p [innerHTML]="now | date:'HH:mm:ss'"></p>
+<p><input bind-value="now | date:'HH:mm:ss'"></p>
+<p><input [value]="now | date:'HH:mm:ss'"></p>
+<p><input [value]="now | date:'HH:mm:ss'"></p>
+<p [attr.role]="stringValue"></p>
+<p [className]="tstringValueest"></p>
+<p [class.important]="isTrue"></p>
+<p [style.background]="color">Hello</p>
+-->

@@ -1,0 +1,10 @@
+<form (submit)="changePrenom()">
+  Prénom :
+  <!--<input name="prenom" [ngModel]="newPrenom" (ngModelChange)="newPrenom = $event">-->
+  <input name="prenom" [(ngModel)]="newPrenom">
+  <button>Go</button>
+</form>
+
+<p>
+  Bonjour {{ prenom }} !
+</p>
