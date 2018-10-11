@@ -1,3 +1,25 @@
 <rte-clock></rte-clock>
 <hr>
 <rte-form-prenom></rte-form-prenom>
+<hr>
+<div [style.background]="color">
+
+  <!--
+  <rte-dropdown
+    noValueLabel="None"
+    [items]="['purple', 'pink', 'cyan']"
+    [showNoValueLabel]="false"
+    [selected]="color"
+    (selectedChange)="color = $event"
+    ></rte-dropdown>
+    -->
+
+  <rte-dropdown
+    noValueLabel="None"
+    [items]="['purple', 'pink', 'cyan']"
+    [showNoValueLabel]="false"
+    [(selected)]="color"
+    ></rte-dropdown>
+
+</div>
+<!-- <rte-dropdown [noValueLabel]="'None'"></rte-dropdown> -->

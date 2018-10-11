@@ -1,0 +1,5 @@
+<!-- <select [ngClass]="{important: true, big: false}" [ngStyle]="{background: 'blue', 'font-size': '2em'}"> -->
+<select (change)="handleChange($event)">
+  <option *ngIf="showNoValueLabel">{{ noValueLabel }}</option>
+  <option *ngFor="let item of items" [selected]="item === selected">{{ item }}</option>
+</select>

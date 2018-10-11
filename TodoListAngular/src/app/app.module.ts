@@ -3,16 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ClockComponent } from './clock/clock.component';
-import { FormPrenomComponent } from './form-prenom/form-prenom.component';
-import { DropdownComponent } from './dropdown/dropdown.component';
+import { FormComponent } from './form/form.component';
+import { ListComponent } from './list/list.component';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClockComponent,
-    FormPrenomComponent,
-    DropdownComponent
+    FormComponent,
+    ListComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

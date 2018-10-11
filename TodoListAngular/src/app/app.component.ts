@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'rte-root',
+  selector: 'todo-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'HelloAngular';
-  color = 'pink';
+  items = ['Pain', 'Lait', 'Beurre'];
+
+  handleTodoChange(todo) {
+    this.items.unshift(todo);
+  }
 }
