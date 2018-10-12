@@ -7,8 +7,10 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should add a new todo', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to TodoListAngular!');
+    page.fillNewTodo('Pain');
+    page.submitForm();
+    expect(page.getTodo()).toContain('Pain');
   });
 });

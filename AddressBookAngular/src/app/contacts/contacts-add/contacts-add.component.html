@@ -1,3 +1,8 @@
-<div>
-  contacts-add works!
-</div>
+<form (submit)="contactForm.valid && handleSubmit()" #contactForm="ngForm">
+  <p>
+      Name :
+      <input name="name" [(ngModel)]="contact.name" required #nameModel="ngModel">
+      <span *ngIf="nameModel.invalid && (nameModel.touched || contactForm.submitted)">Le nom est obligatoire</span>
+  </p>
+  <button>+</button>
+</form>

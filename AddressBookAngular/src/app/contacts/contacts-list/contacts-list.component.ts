@@ -1,3 +1,4 @@
+import { ContactHttpService } from './../../core/contact-http.service';
 import { ContactService } from './../../core/contact.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
@@ -11,10 +12,17 @@ export class ContactsListComponent implements OnInit {
 
   contacts = [];
 
-  constructor(protected contactService: ContactService) { }
+  constructor(protected contactService: ContactHttpService) { }
 
   ngOnInit() {
-    this.contactService.getAll().subscribe((contacts) => {
+    this.getList();
+    this.contactService.events.subscribe(() => {
+      this.getList();
+    });
+  }
+
+  getList() {
+    this.contactService.getAll().subscribe((contacts: any) => {
       this.contacts = contacts;
     });
   }

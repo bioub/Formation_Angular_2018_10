@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemComponent } from './item.component';
+import { FormsModule } from '@angular/forms';
 
 describe('ItemComponent', () => {
   let component: ItemComponent;
@@ -8,6 +9,7 @@ describe('ItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ FormsModule ],
       declarations: [ ItemComponent ]
     })
     .compileComponents();
@@ -21,5 +23,11 @@ describe('ItemComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contains todo.text', () => {
+    component.todo = { text: 'Pain' };
+    fixture.detectChanges();
+    expect(fixture.debugElement.nativeElement.querySelector('p').innerText).toContain('Pain');
   });
 });

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { ERROR_COLLECTOR_TOKEN } from '@angular/platform-browser-dynamic/src/compiler_factory';
 
 @Injectable(/*{ providedIn: 'root' }*/)
 export class ContactService {
@@ -22,5 +23,9 @@ export class ContactService {
     return of(contact).pipe(
       delay((id === 1) ? 5000 : 200),
     );
+  }
+
+  create() {
+    return of();
   }
 }

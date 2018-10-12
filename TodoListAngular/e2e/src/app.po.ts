@@ -5,7 +5,15 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('todo-root h1')).getText();
+  fillNewTodo(val) {
+    return element(by.css('todo-form input')).sendKeys(val);
+  }
+
+  submitForm() {
+    return element(by.css('todo-form form')).submit();
+  }
+
+  getTodo() {
+    return element(by.css('todo-item')).getText();
   }
 }
