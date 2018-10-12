@@ -1,6 +1,10 @@
 <div class="container">
   <div>
-    contacts-list works!
+    <ul>
+      <li *ngFor="let c of contacts">
+        <a [routerLink]="[c.id]">{{c.name}}</a>
+      </li>
+    </ul>
   </div>
 
   <router-outlet></router-outlet>

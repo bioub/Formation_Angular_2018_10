@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Todo } from '../todo';
 
 @Component({
   selector: 'todo-form',
@@ -7,9 +8,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  todo = '';
+  todo = new Todo();
 
-  @Output() todoChange = new EventEmitter<string>();
+  @Output() todoChange = new EventEmitter<Todo>();
 
   constructor() { }
 
@@ -17,8 +18,9 @@ export class FormComponent implements OnInit {
   }
 
   handleSubmit() {
-    this.todoChange.emit(this.todo);
-    this.todo = '';
+    const copy = {...this.todo};
+    this.todoChange.emit(copy);
+    this.todo.text = '';
   }
 
 }

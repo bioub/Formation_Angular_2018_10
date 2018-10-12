@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
+import { ContactService } from 'src/app/core/contact.service';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'ab-contacts-show',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsShowComponent implements OnInit {
 
-  constructor() { }
+  contact;
+
+  constructor(
+    protected contactService: ContactService,
+    protected activatedRoute: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    /*
+    this.activatedRoute.params.subscribe((params) => {
+      this.contactService.getById(params.id).subscribe((contact) => {
+        this.contact = contact;
+      });
+    });
+    */
+    // évite le bug de requete 1 plus longue que la 2
+    this.activatedRoute.params.pipe(
+      switchMap((params) => this.contactService.getById(params.id))
+    ).subscribe((contact) => {
+      this.contact = contact;
+    });
   }
 
 }

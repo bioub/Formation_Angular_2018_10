@@ -1,3 +1,4 @@
+<label><input type="checkbox" [(ngModel)]="toggleChecked" (change)="toggleAll()"> Toggle All</label>
 <todo-form (todoChange)="handleTodoChange($event)"></todo-form>
 <todo-list [todos]="items"></todo-list>
 

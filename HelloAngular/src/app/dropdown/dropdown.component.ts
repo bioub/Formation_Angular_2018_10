@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, Attribute } from '@angular/core';
 
 @Component({
   selector: 'rte-dropdown',
@@ -9,13 +9,12 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class DropdownComponent implements OnInit {
 
   @Input() showNoValueLabel = true;
-  @Input() noValueLabel = '-- Pas de Valeur --';
   @Input() items: string[] = [];
   @Input() selected: string;
 
   @Output() selectedChange = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(@Attribute('noValueLabel') public noValueLabel = '-- Pas de Valeur --') { }
 
   ngOnInit() {
   }

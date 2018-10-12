@@ -8,11 +8,11 @@ const routes: Routes = [{
   path: 'contacts',
   component: ContactsListComponent,
   children: [{
-    path: 'show',
-    component: ContactsShowComponent,
-  }, {
     path: 'add',
     component: ContactsAddComponent,
+  }, {
+    path: ':id',
+    component: ContactsShowComponent,
   }]
 }];
 
